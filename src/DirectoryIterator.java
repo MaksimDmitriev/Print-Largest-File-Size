@@ -1,19 +1,18 @@
-import com.sun.istack.internal.NotNull;
 
 import java.io.File;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-/**
- * Created by Maksim on 1/12/2016.
- */
 public class DirectoryIterator {
 
     private DirectoryIterator() {
         throw new AssertionError();
     }
 
-    public static String getLargestFilePath(@NotNull File initPath) {
+    public static String getLargestFilePath(File initPath) {
+        if (initPath == null) {
+            throw new IllegalArgumentException("The init path cannot be null");
+        }
         long maxFileLength = 0;
         String maxFilePath = null;
         Deque<File> stack = new ArrayDeque<>();
