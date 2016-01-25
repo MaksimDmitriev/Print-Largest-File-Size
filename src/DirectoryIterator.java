@@ -21,10 +21,13 @@ public class DirectoryIterator {
             File current = stack.pop();
             if (current.isDirectory()) {
                 File[] files = current.listFiles();
-                for (File file : files) {
-                    stack.push(file);
+                if (files != null) {
+                    for (File file : files) {
+                        stack.push(file);
+                    }
                 }
             } else if (current.length() > maxFileLength) {
+                maxFileLength = current.length();
                 maxFilePath = current.getAbsolutePath();
             }
         }

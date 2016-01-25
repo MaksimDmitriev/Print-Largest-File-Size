@@ -31,11 +31,15 @@ public class DirectoryIteratorTest {
         Assert.assertEquals(null, DirectoryIterator.getLargestFilePath(initPath));
     }
 
-    // C:\Users\Maksim\Google Drive\Books\Algorithms\ Algorithms_and_Data_Structures_RU 281 777
     @Test
     public void manyFiles() {
         File initPath = new File("C:\\Users\\Maksim\\Google Drive");
-        Assert.assertEquals("C:\\Users\\Maksim\\Google Drive\\Books\\Algorithms\\Algorithms_and_Data_Structures_RU.mp4", DirectoryIterator.getLargestFilePath(initPath));
+        Assert.assertEquals("C:\\Users\\Maksim\\Google Drive\\Career\\TODO\\AnDevCon Boston 2015.zip", DirectoryIterator.getLargestFilePath(initPath));
     }
 
+    @Test
+    public void programsFiles() {
+        File initPath = new File("C:\\Program Files");
+        Assert.assertEquals("C:\\Program Files\\NVIDIA Corporation\\Installer2\\Display.Driver.{4A36C174-8462-4C32-AA28-4A28BED2792A}\\NvCplSetupInt.exe", DirectoryIterator.getLargestFilePath(initPath));
+    }
 }
